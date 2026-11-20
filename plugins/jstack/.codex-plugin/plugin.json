@@ -1,7 +1,7 @@
 {
   "name": "jstack",
-  "version": "0.1.0",
-  "description": "极简中文工程工作流：先深挖后动手、写更少但更稳的代码、用真实运行证据自证，并一路收到约定的终态。同时支持 Cursor 与 Codex。",
+  "version": "0.2.0",
+  "description": "面向 Cursor 与 Codex 的完整中文工程工作流插件（基于 pstack 深度翻译与本土化改造）：全套 22 个 Playbook、23 条工程原则、6 条个人铁律、跨厂商赛马/对抗评审与验证闭环。",
   "author": {
     "name": "Jayden"
   },
@@ -10,17 +10,19 @@
   "license": "MIT",
   "keywords": [
     "jstack",
+    "pstack",
     "workflow",
     "playbooks",
-    "verification",
-    "review",
-    "pstack"
+    "arena",
+    "interrogate",
+    "blast-radius",
+    "verification"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "jstack",
-    "shortDescription": "先深挖后动手、真实证据自证、一路收到终态的极简中文工程工作流",
-    "longDescription": "基于 pstack 精简改写的中文工程工作流插件，收敛为 jstack 总入口与 explore / build / ship / handoff / verify-setup / setup 六个清晰能力，原生适配 Cursor 与 Codex，支持跨厂商只读评审与项目级验证闭环。",
+    "shortDescription": "完整 22 Playbook + 跨厂商评审与真实运行验证的中文工程工作流",
+    "longDescription": "基于 Lauren Tan 的 pstack 与 open-pstack 深度中文翻译并针对 Cursor + Codex 双宿主改造：包含 22 个覆盖调查/修复/性能/开发/设计/PR/长任务/交接的实战 Playbook、23 条完整工程原则、6 条个人高频铁律，以及 arena / interrogate / blast-radius / swarm / figure-it-out / verify-setup 等 16 个高密度核心 Skill。",
     "developerName": "Jayden（基于 Lauren Tan 的 pstack 改编）",
     "category": "Developer Tools",
     "capabilities": [
@@ -30,7 +32,7 @@
     ],
     "defaultPrompt": [
       "用 jstack 来推进这个任务。",
-      "用 explore 帮我查清这个问题的根因。"
+      "用 interrogate 对这个分支做跨厂商对抗评审。"
     ],
     "websiteURL": "https://github.com/jiahao-jayden/jayden-stack"
   }

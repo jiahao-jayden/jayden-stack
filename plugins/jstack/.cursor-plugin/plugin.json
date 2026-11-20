@@ -1,8 +1,8 @@
 {
   "name": "jstack",
   "displayName": "jstack",
-  "version": "0.1.0",
-  "description": "极简中文工程工作流：先深挖后动手、写更少但更稳的代码、用真实运行证据自证，并一路收到约定的终态。",
+  "version": "0.2.0",
+  "description": "面向 Cursor 与 Codex 的完整中文工程工作流插件（基于 pstack 深度翻译与本土化改造）：全套 22 个 Playbook、23 条工程原则、6 条个人铁律、跨厂商赛马/对抗评审与验证闭环。",
   "author": {
     "name": "Jayden"
   },
@@ -11,11 +11,13 @@
   "license": "MIT",
   "keywords": [
     "jstack",
+    "pstack",
     "workflow",
     "playbooks",
-    "verification",
-    "review",
-    "pstack"
+    "arena",
+    "interrogate",
+    "blast-radius",
+    "verification"
   ],
   "category": "developer-tools",
   "tags": [
