@@ -15,8 +15,8 @@
 | **`/build`** | 正式开发、重构与性能自证 | `references/{architect,arena,swarm,figure-it-out,tdd,benchmark-checklist}.md`；路由 `bug-fix` / `feature` / `refactoring` / `perf-issue` / `hillclimb` / `visual-parity` / `multi-phase-plan` |
 | **`/ship`** | 一路收到约定终态 | `references/{no-comments,correct,retro,show-me-your-work,decision-log-template.tsv}` + `scripts/log.sh`；路由 `opening-a-pr` / `babysit` / `shipping` / `autonomous-run` / `autopilot-full` / `autopilot-stack` |
 | **`/handoff`** | 跨会话 / Cursor ↔ Codex 交接与清理 | 路由 `pause-safely` / `session-pickup` / `worktree-cleanup` |
-| **`/verify-setup`** | 项目验证闭环工具 | 为任意仓库首次生成或定期校准项目专属 `verify-<app>` skill 与 Feature Map |
-| **`/setup`** | 本机环境初始化 | 一键体检并初始化本机 Cursor 与 Codex 双宿主子代理及跨厂商评审通道 |
+| **`/verify-setup`** | 项目验证闭环工具（仅手动调用） | 为任意仓库首次生成或定期校准项目专属 `verify-<app>` skill 与 Feature Map |
+| **`/setup`** | 本机环境初始化（仅手动调用） | 一键体检并初始化本机 Cursor 与 Codex 双宿主子代理及跨厂商评审通道 |
 
 ## 22 个中文 Playbook 全览（`plugins/jstack/skills/jstack/playbooks/`）
 

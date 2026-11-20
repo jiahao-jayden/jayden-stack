@@ -1,0 +1,6 @@
+interface:
+  display_name: "setup"
+  short_description: "一键检查并初始化本机 Cursor 与 Codex 的 jstack 运行环境"
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,6 @@
+interface:
+  display_name: "verify-setup"
+  short_description: "为当前项目生成或校准项目专属验证 Skill 与 Feature Map"
+
+policy:
+  allow_implicit_invocation: false

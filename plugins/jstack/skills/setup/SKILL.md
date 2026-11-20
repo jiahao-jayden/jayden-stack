@@ -1,6 +1,7 @@
 ---
 name: setup
 description: 一键检查并初始化本机 Cursor 与 Codex 的 jstack 运行环境（Codex 子代理配置、multi_agent 开关、以及本机 claude 跨厂商只读评审通道）。
+disable-model-invocation: true
 ---
 
 # setup

@@ -1,6 +1,7 @@
 ---
 name: verify-setup
 description: 为当前项目生成或校准项目专属验证 Skill（verify-<app>）与 Feature Map，让 Agent 每次改动都能像真实用户一样启动、驱动并留存验证证据。
+disable-model-invocation: true
 ---
 
 # verify-setup
