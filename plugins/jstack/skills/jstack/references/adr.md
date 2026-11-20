@@ -30,7 +30,7 @@
 
 ## 4. 目录与生命周期
 
-- **标准多文件（默认）**：`docs/adr/NNNN-kebab-slug.md`（例如 `docs/adr/0001-relay-ciphertext-only.md`）。**懒创建**（没有真正满足门槛的决策前不建空目录）；编号只增不删。
+- **标准多文件（默认）**：`docs/adr/NNNN-kebab-slug.md`（例如 `docs/adr/0001-relay-ciphertext-only.md`）。**懒创建**（没有真正满足门槛的决策前不建空目录）；编号只增不删。其他非 ADR 文档同样按职责分目录放（`docs/ops/`、`docs/guides/`、`docs/contracts/`），禁止平铺在 `docs/` 根目录。
 - **单文件兼容**：仓库已有 `docs/decisions.md`（或小型项目偏好单文件表格）时，直接沿用原文件维护，不强行拆目录。
 - **状态流转**：`proposed` / `open`（未决方向）→ `accepted`（已定决策）→ `superseded by ADR-NNNN` 或 `deprecated`（已推翻/废弃）。
 - **只追加不覆盖历史**：推翻旧决策时，新建一条新 ADR 说明新决定，并在旧 ADR 顶部仅改状态为 `superseded by ADR-NNNN` 并补一句触发的推翻条件；`proposed` / `open` 一旦落地成代码或被放弃，必须在同一 PR 内同步收口状态。
