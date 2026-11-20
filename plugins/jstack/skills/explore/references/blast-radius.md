@@ -1,8 +1,3 @@
----
-name: blast-radius
-description: 在合入前追查一个改动可能在 diff 之外炸毁什么，专挖 grep 看不到的隐蔽破坏，并通过跑真实代码证明“它之所以安全的唯一核心事实”。用于 /blast-radius 或审查看似很小却让你心里没底的 diff。
----
-
 # Blast radius（爆炸半径与 5 级确定性证明）
 
 与 `how`（它怎么工作）和 `why`（为什么这么写）配套：`blast-radius` 专门回答**“这个改动会在 diff 之外把哪里炸掉？”**

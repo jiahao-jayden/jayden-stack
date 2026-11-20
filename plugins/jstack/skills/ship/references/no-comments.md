@@ -1,8 +1,3 @@
----
-name: no-comments
-description: 派出注释清道夫（Comment Sicko）清扫 diff 中的废话注释与遮丑 workaround 注释，复核并按根因修复确认有效的 MUST KILL 重构点。用于 /no-comments 或提交审查前清理。
----
-
 # No comments（清理废话注释与遮丑代码）
 
 清掉代码里的废话旁白和用长篇注释掩盖的烂设计，而不是把烂代码藏在“重要！勿删！”背后。
@@ -15,7 +10,7 @@ description: 派出注释清道夫（Comment Sicko）清扫 diff 中的废话注
 
 1. **派出 `comment-sicko` 清理注释并标出 `MUST KILL`**：
    - 在 Cursor 中通过 `Task` 派 `subagent_type: "comment-sicko"`；
-   - 在 Codex 中按 [`../../agents/comment-sicko.md`](../../agents/comment-sicko.md) 的角色规则派专用子代理（严格只删注释和标记，不动业务代码）。
+   - 在 Codex 中按 [`../../../agents/comment-sicko.md`](../../../agents/comment-sicko.md) 的角色规则派专用子代理（严格只删注释和标记，不动业务代码）。
 2. **主会话严格复核报告与 diff**：
    - 拒绝任何越界修改业务代码、越出指定范围、误删豁免项（License / 无法修改的外部平台怪癖 / 对外公共 API 文档 / RFC 链接）的操作；
    - 对我们自己代码里的怪癖标记为 `MUST KILL` 的条目保持有效，绝不把注释恢复回去糊弄过去；

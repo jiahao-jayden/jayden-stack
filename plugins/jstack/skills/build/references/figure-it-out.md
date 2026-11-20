@@ -1,15 +1,10 @@
----
-name: figure-it-out
-description: 当任务超大、跨模块或没有任何单一 Playbook 覆盖时，先设计一套可审计的工作流剧本，搭建基线验证脚手架，再以科学实验环逐片推进并留下完整决策轨迹。用于 /figure-it-out 或复杂大迁移/大重构。
----
-
 # Figure it out（大任务自建工作流 + 科学实验环）
 
 当任务规模大、跨度广、没有任何单一现成 Playbook 完整贴合时，先为它**设计专属工作流**。在动第一行业务代码前，第一个交付物就是这套可审计、可按科学实验推进的阶段剧本。
 
 ## 启动
 
-先开 todolist：第一项为查阅 `../jstack/references/principles.md`；随后把下面五个阶段加进 todolist。
+先开 todolist：第一项为查阅 `../../jstack/references/principles.md`；随后把下面五个阶段加进 todolist。
 
 ## Phase A：定界与严苛度（Frame）
 
@@ -39,11 +34,11 @@ description: 当任务超大、跨模块或没有任何单一 Playbook 覆盖时
 
 ## Phase D：全程维护决策审计轨迹（Audit trail）
 
-按 **show-me-your-work** skill 每落完一片就实时写一行 TSV 决策日志（绝不拖到结束补写）。大工程通常把这份决策轨迹一并提交进 PR，让审阅者离开几小时回来也能顺着轨迹信任整份 diff。
+按 [show-me-your-work](../../ship/references/show-me-your-work.md) 每落完一片就实时写一行 TSV 决策日志（绝不拖到结束补写）。大工程通常把这份决策轨迹一并提交进 PR，让审阅者离开几小时回来也能顺着轨迹信任整份 diff。
 
 ## Phase E：端到端总验与结构化沉淀（Verify and hand back）
 
 - 在真实产品运行面上（不只在脚手架里）对照 Phase A 的完成谓词做全链路总验；
-- 凡是过程中反复踩过的同类纠偏，按 **correct** skill 固化为门禁、Lint、类型或脚本。
+- 凡是过程中反复踩过的同类纠偏，按 [correct](../../ship/references/correct.md) 固化为门禁、Lint、类型或脚本。
 
 **回复要求**：你设计的工作流剧本、严苛度级别及理由、决策轨迹路径、对照完成谓词的逐项验证结果，以及仍开放的事项。

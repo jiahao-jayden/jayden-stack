@@ -1,8 +1,3 @@
----
-name: interrogate
-description: 跨厂商对抗式只读破坏审查。派出对抗评审者专找能把改动或设计打爆的真实漏洞，只有能用运行命令与报错输出证明的发现才存活，纯风格猜测一律丢弃。绝不修改业务代码。
----
-
 # Interrogate（对抗式只读破坏审查）
 
 **核心规则：对手的目标是把改动或设计打爆；只有“跑得出来真实失败证据”的发现才能存活。只报告经复核的发现，绝不直接改正式代码。**
@@ -15,7 +10,7 @@ description: 跨厂商对抗式只读破坏审查。派出对抗评审者专找�
 
 ## 2. 派出跨厂商对抗评审者（Fan out）
 
-参考 **arena** 的隔离并发与 `../jstack/references/host-dispatch.md` 的双宿主跨厂商规则：
+参考 **arena** 的隔离并发与 `../../jstack/references/host-dispatch.md` 的双宿主跨厂商规则：
 - 在 Cursor 中并发派出 1–3 个跨厂商强模型只读/隔离 worktree 子代理（把工作区未提交改动同步进各隔离 worktree，绝不污染主工作区）；
 - 在 Codex 中通过 `scripts/run-external.mjs` 调本机 `claude` CLI（必要时再配一个 Codex 只读 `reviewer` 交叉核验）；若外部通道 dropout 必须显式汇报。
 

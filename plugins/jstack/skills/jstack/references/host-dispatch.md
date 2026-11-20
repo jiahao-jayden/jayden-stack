@@ -28,7 +28,7 @@
 - **侦察**：`subagent_type: "explore"` 或插件注册的 `scout`（`readonly: true`）。
 - **实现**：`subagent_type: "generalPurpose"` 或插件注册的 `worker`；给出精确文件边界、数据形状、成功判据与必跑验证命令。
 - **跨厂商评审 / 裁判**：`subagent_type: "generalPurpose"` 或 `reviewer`，`readonly: true`，在 `model` 参数显式传入与当前主模型不同厂商的强模型（从本会话可用子代理模型列表选择）。若 `Task` 拒绝某个 model slug，不再重试同一个 slug，改用同家族最近的有效 slug 并向用户说明。
-- **去注释清理**：`subagent_type: "comment-sicko"`（由 `no-comments` skill 调用）。
+- **去注释清理**：`subagent_type: "comment-sicko"`（由 [no-comments](../../ship/references/no-comments.md) 调用）。
 - 若仓库存在 `REVIEW.md`，主会话先用 `git show <base>:REVIEW.md` 读出原文一并交给 `reviewer`。
 
 ## 四、在 Codex 中派发

@@ -1,8 +1,3 @@
----
-name: arena
-description: 对同一个复杂任务并发派出多个不同模型候选者独立作答，用跨厂商裁判按 rubric 逐项打分选出底座，再手工把败者身上最强的 1-2 个亮点嫁接进底座并验证。用于 /arena 或重要架构/实现决策。
----
-
 # Arena（多模型并行赛马 + 跨厂商裁判 + 手工嫁接）
 
 启动任何子代理前，先在 todolist 里建好 6 个阶段：`Frame → Fan out → Cross-judge → Pick → Graft → Verify`。
@@ -15,7 +10,7 @@ description: 对同一个复杂任务并发派出多个不同模型候选者独�
 2. **写 3–6 条具体可打分的 rubric**：只用于 Phase C/D 评审，**不发给候选者**。每条必须是可观测判据，不是“代码写得好”。
 3. **挑选多厂商参赛选手**：
    - 在 Cursor 中用原生 `Task` 并发派出至少 2–3 个不同厂商的强模型（例如 Claude 系 + GPT 系 + Gemini 系；若某个 model slug 被拒绝，改用同家族最近有效 slug 或记一次 dropout，至少保留 2 名选手并如实说明）。
-   - 在 Codex 中可并发 `spawn_agent` 跑不同方向，并按 `../jstack/references/host-dispatch.md` 通过 `scripts/run-external.mjs` 引入本机 `claude` 作为跨厂商参赛或裁判视角。
+   - 在 Codex 中可并发 `spawn_agent` 跑不同方向，并按 `../../jstack/references/host-dispatch.md` 通过 `scripts/run-external.mjs` 引入本机 `claude` 作为跨厂商参赛或裁判视角。
 4. **严格隔离输出位置（先拆分再串行化）**：每个候选者分配独立 git worktree（或独立 `/tmp/arena-<slug>/candidate-<n>/` 目录），绝不共享写入目录。
 
 ## Phase B：并发开跑（Fan out）

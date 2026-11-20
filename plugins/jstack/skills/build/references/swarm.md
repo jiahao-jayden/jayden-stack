@@ -1,8 +1,3 @@
----
-name: swarm
-description: 并发派出 N 个独立 worker 做分片覆盖、多路赛跑或独立验证，严格校验回报凭据后合并成一份干净报告。用于 /swarm 或大规模并行验证/排查。
----
-
 # Swarm（多 Worker 并发分片 / 赛跑与严苛聚合）
 
 启动前先在 todolist 建好四个阶段：`1. Frame → 2. Fan out → 3. Aggregate → 4. Report`。
@@ -15,7 +10,7 @@ description: 并发派出 N 个独立 worker 做分片覆盖、多路赛跑或�
    - **同题赛跑（Race）**：N 个 worker 拿完全一样的任务书赛跑；
    - **混合形态（Mixed）**。
    - 凡是涉及赛跑，**派发前先声明胜出规则**：`first pass`（首个达标即胜）、`rank all`（全部排序）或 `best-of`（挑最优）。
-3. **按双宿主约定选模型**（见 `../jstack/references/host-dispatch.md`）：常规覆盖和验证用高效主力模型；若是多模型赛跑，事先写明每条支路的模型名。
+3. **按双宿主约定选模型**（见 `../../jstack/references/host-dispatch.md`）：常规覆盖和验证用高效主力模型；若是多模型赛跑，事先写明每条支路的模型名。
 4. **严格隔离写入与强凭据约束**：
    - 凡是会写文件的 worker，各自给独立目录或 git worktree（先拆分再串行化）。
    - 凡是验证或测量 commit 的 worker，任务书里必须写死精确的 **commit SHA**；测量类任务书还必须写死**采样方法**（样本数、单样本定义、执行顺序），并要求 worker 在结果里原样回填 SHA 和方法以供核验。

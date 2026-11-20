@@ -1,6 +1,6 @@
 ---
 name: ship
-description: 收口交付到约定终态的一键入口。按目标路由到 opening-a-pr / babysit / shipping / autopilot-full / autopilot-stack / autonomous-run，并串联 no-comments 与 correct 沉淀防错。
+description: 收口交付到约定终态的一键入口。内置 no-comments / correct / show-me-your-work 三份深度手册及日志脚本，并路由 opening-a-pr / babysit / shipping / autonomous-run / autopilot-full / autopilot-stack 剧本。
 ---
 
 # ship（收口交付到约定终态）
@@ -16,7 +16,9 @@ description: 收口交付到约定终态的一键入口。按目标路由到 ope
 | 并行把一批独立 PR 从开发、蜂群验证做到合并 | [`../jstack/playbooks/autopilot-full.md`](../jstack/playbooks/autopilot-full.md) |
 | 并行做完并验证一批 PR（或 PR 栈）后交接不合并 | [`../jstack/playbooks/autopilot-stack.md`](../jstack/playbooks/autopilot-stack.md) |
 
-收口配套能力：
-- 提交前如注释冗余或藏有 workaround，跑 [`../no-comments/SKILL.md`](../no-comments/SKILL.md)；
-- 中高风险合并前可先过 [`../interrogate/SKILL.md`](../interrogate/SKILL.md) 或 [`../blast-radius/SKILL.md`](../blast-radius/SKILL.md)；
-- 若本次重复踩到了同类坑（≥2 次），收尾按 [`../correct/SKILL.md`](../correct/SKILL.md) 建议升级为架构/类型/Lint/测试级永久防线。
+## 内置收口与审计参考手册（按需触发读取）
+
+- **清理废话注释与 `MUST KILL` 重构点**：[`references/no-comments.md`](references/no-comments.md)
+- **可审计 TSV 决策轨迹日志 + 跨厂商审计**：[`references/show-me-your-work.md`](references/show-me-your-work.md)（配 `scripts/log.sh`）
+- **把反复踩过的同类坑固化为架构/类型/Lint/测试防线**：[`references/correct.md`](references/correct.md)
+- 中高风险合并前可顺手过一遍 [`../explore/references/interrogate.md`](../explore/references/interrogate.md) 或 [`../explore/references/blast-radius.md`](../explore/references/blast-radius.md)。
