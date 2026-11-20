@@ -27,6 +27,7 @@ description: 正式代码开发与端到端自证的一键入口。内置 archit
 - **性能数字七问防伪核对**：[`references/benchmark-checklist.md`](references/benchmark-checklist.md)
 
 始终遵守 [`../jstack/SKILL.md`](../jstack/SKILL.md) 的六条铁律与 [`../jstack/references/principles.md`](../jstack/references/principles.md)：
+- 动核心模块前先查现存 ADR（[`../jstack/references/adr.md`](../jstack/references/adr.md)），不盲拆刻意约束；拍板踩中门槛的取舍或未决方向时顺手起草极简 ADR 随改动落盘。
 - 不留向后兼容层、先减后加；开工先列清用户点名的全部端与入口；UI 改动必测正反状态（展开+收起、浮层不遮挡按钮）；严守指定设备与运行方式（热更新/真机/禁模拟器）。
 - 同一前提连挂 2 次先「质疑前提」，同一问题累计 3 轮修不过立刻熔断找人。
 - 子代理派发首行必读 `worker.md`，见 [`../jstack/references/host-dispatch.md`](../jstack/references/host-dispatch.md)。

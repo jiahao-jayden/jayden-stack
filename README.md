@@ -6,14 +6,14 @@
 
 ## 设计原则：顶层极简，底层厚实
 
-对外只暴露 **7 个清晰顶层 Skill**（不污染斜杠命令面板和上下文 catalog），但把 `pstack` 的全部 **22 个完整 Playbook** 与 **13 份专项重武器手册**一字不减地收纳进各主 Skill 的 `playbooks/` 与 `references/` 目录中按需加载：
+对外只暴露 **7 个清晰顶层 Skill**（不污染斜杠命令面板和上下文 catalog），把全部 **22 个完整 Playbook** 与 **19 份专项参考手册**按阶段收纳进各主 Skill 的 `playbooks/` 与 `references/` 目录中按需加载：
 
 | 顶层 Skill | 定位 | 内部收纳的完整 Playbook / References |
 | --- | --- | --- |
-| **`/jstack`** | 总入口（全自动路由） | **22 个中文 Playbook** + `worker.md` 穿透规则 + `references/{principles,host-dispatch,bugbot-triage}.md` + `scripts/worktree-audit.sh` |
-| **`/explore`** | 探索、诊断、原型与评审（不动正式代码） | `references/{how,why,interrogate,blast-radius}.md`；路由 `investigation` / `runtime-forensics` / `trace-forensics` / `prototype` |
+| **`/jstack`** | 总入口（全自动路由） | **22 个中文 Playbook** + `worker.md` 穿透规则 + `references/{principles,adr,host-dispatch,bugbot-triage}.md` + `scripts/worktree-audit.sh` |
+| **`/explore`** | 探索、诊断、原型与评审（不动正式代码） | `references/{how,why,code-review,interrogate,blast-radius}.md`；路由 `investigation` / `runtime-forensics` / `trace-forensics` / `prototype` |
 | **`/build`** | 正式开发、重构与性能自证 | `references/{architect,arena,swarm,figure-it-out,tdd,benchmark-checklist}.md`；路由 `bug-fix` / `feature` / `refactoring` / `perf-issue` / `hillclimb` / `visual-parity` / `multi-phase-plan` |
-| **`/ship`** | 一路收到约定终态 | `references/{no-comments,correct,show-me-your-work,decision-log-template.tsv}` + `scripts/log.sh`；路由 `opening-a-pr` / `babysit` / `shipping` / `autonomous-run` / `autopilot-full` / `autopilot-stack` |
+| **`/ship`** | 一路收到约定终态 | `references/{no-comments,correct,retro,show-me-your-work,decision-log-template.tsv}` + `scripts/log.sh`；路由 `opening-a-pr` / `babysit` / `shipping` / `autonomous-run` / `autopilot-full` / `autopilot-stack` |
 | **`/handoff`** | 跨会话 / Cursor ↔ Codex 交接与清理 | 路由 `pause-safely` / `session-pickup` / `worktree-cleanup` |
 | **`/verify-setup`** | 项目验证闭环工具 | 为任意仓库首次生成或定期校准项目专属 `verify-<app>` skill 与 Feature Map |
 | **`/setup`** | 本机环境初始化 | 一键体检并初始化本机 Cursor 与 Codex 双宿主子代理及跨厂商评审通道 |

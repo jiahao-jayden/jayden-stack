@@ -1,6 +1,6 @@
 ---
 name: ship
-description: 收口交付到约定终态的一键入口。内置 no-comments / correct / show-me-your-work 三份深度手册及日志脚本，并路由 opening-a-pr / babysit / shipping / autonomous-run / autopilot-full / autopilot-stack 剧本。
+description: 收口交付到约定终态的一键入口。内置 no-comments / correct / retro / show-me-your-work 四份深度手册及日志脚本，并路由 opening-a-pr / babysit / shipping / autonomous-run / autopilot-full / autopilot-stack 剧本。
 ---
 
 # ship（收口交付到约定终态）
@@ -18,7 +18,8 @@ description: 收口交付到约定终态的一键入口。内置 no-comments / c
 
 ## 内置收口与审计参考手册（按需触发读取）
 
-- **清理废话注释与 `MUST KILL` 重构点**：[`references/no-comments.md`](references/no-comments.md)
-- **可审计 TSV 决策轨迹日志 + 跨厂商审计**：[`references/show-me-your-work.md`](references/show-me-your-work.md)（配 `scripts/log.sh`）
+- **清理废话注释、升格隐性约束为 ADR 与处理 `MUST KILL`**：[`references/no-comments.md`](references/no-comments.md)
+- **收尾复盘（扫过程 transcript + 成品 diff）与棘轮固化**：[`references/retro.md`](references/retro.md)
 - **把反复踩过的同类坑固化为架构/类型/Lint/测试防线**：[`references/correct.md`](references/correct.md)
-- 中高风险合并前可顺手过一遍 [`../explore/references/interrogate.md`](../explore/references/interrogate.md) 或 [`../explore/references/blast-radius.md`](../explore/references/blast-radius.md)。
+- **可审计 TSV 决策轨迹日志 + 跨厂商审计**：[`references/show-me-your-work.md`](references/show-me-your-work.md)（配 `scripts/log.sh`）
+- 收口前按需核对 [`../jstack/references/adr.md`](../jstack/references/adr.md) 补齐/收口 ADR；常规体检过 [`../explore/references/code-review.md`](../explore/references/code-review.md)，中高风险合并前过 [`../explore/references/interrogate.md`](../explore/references/interrogate.md) 或 [`../explore/references/blast-radius.md`](../explore/references/blast-radius.md)。

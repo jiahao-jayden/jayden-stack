@@ -1,6 +1,6 @@
 ---
 name: explore
-description: 探索、诊断、原型与只读评审的一键入口（绝不修改正式业务代码）。内置 how / why / interrogate / blast-radius 四份深度手册，并路由 investigation / runtime-forensics / trace-forensics / prototype 剧本。
+description: 探索、诊断、原型与只读评审的一键入口（绝不修改正式业务代码）。内置 how / why / code-review / interrogate / blast-radius 五份深度手册，并路由 investigation / runtime-forensics / trace-forensics / prototype 剧本。
 ---
 
 # explore（探索、诊断、原型与评审）
@@ -16,11 +16,12 @@ description: 探索、诊断、原型与只读评审的一键入口（绝不修�
 | 分析已有 profile / heap / spindump 采样文件 | [`../jstack/playbooks/trace-forensics.md`](../jstack/playbooks/trace-forensics.md) |
 | 隔离目录做一次性原型拍板布局/交互/时序分叉 | [`../jstack/playbooks/prototype.md`](../jstack/playbooks/prototype.md) |
 | 梳理模块架构、运行时数据流与分层归属（How） | [`references/how.md`](references/how.md) |
-| 查 git / PR 历史追溯“为什么这样写”（Why） | [`references/why.md`](references/why.md) |
+| 查 ADR 与 git / PR 历史追溯“为什么这样写”（Why） | [`references/why.md`](references/why.md) |
+| Standards + Spec 双轴并行只读代码评审 | [`references/code-review.md`](references/code-review.md) |
 | 跨厂商对抗式破坏审查（无复现证据一律丢弃） | [`references/interrogate.md`](references/interrogate.md) |
 | 查 diff 之外 grep 看不到的爆炸半径 + 5 级证明 | [`references/blast-radius.md`](references/blast-radius.md) |
 
 执行要点：
-- 结论优先依据真实日志、请求/响应、采样文件与 git 记录，每条明确标注 `实测`、`推断` 或 `未验证`。
+- 结论优先依据真实日志、请求/响应、采样文件、既有 ADR（[`../jstack/references/adr.md`](../jstack/references/adr.md)）与 git 记录，每条明确标注 `实测`、`推断` 或 `未验证`。
 - 跨厂商评审前，若仓库 base 分支存在 `REVIEW.md`，先用 `git show <base>:REVIEW.md` 读取作为基准。
 - 探索结束只交付带实证的真相、决策或评审清单；需要动手改正式代码时再转 `/build`。

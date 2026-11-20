@@ -8,9 +8,10 @@ description: Jayden 的核心工程工作流总入口（基于 pstack 完整翻�
 **欲速则先深挖。写更少但更稳的代码；每一项结论靠真实运行证据说话，每一项任务一路收到约定的终态。**
 
 同插件下的专项重武器手册统一收纳在各阶段主 Skill 的 `references/` 目录（不污染顶层斜杠命令列表）：
-- 探索与只读评审类：`../explore/references/{how,why,interrogate,blast-radius}.md`
+- 总控与跨阶段底座：`references/{principles,adr,host-dispatch,bugbot-triage}.md`
+- 探索与只读评审类：`../explore/references/{how,why,code-review,interrogate,blast-radius}.md`
 - 架构、并发与测试类：`../build/references/{architect,arena,swarm,figure-it-out,tdd,benchmark-checklist}.md`
-- 收口、审计与防错类：`../ship/references/{no-comments,correct,show-me-your-work}.md`
+- 收口、复盘与防错类：`../ship/references/{no-comments,correct,retro,show-me-your-work}.md`
 
 派发任何子代理时，把本文件所在目录的绝对路径传给它。
 
@@ -31,13 +32,14 @@ description: Jayden 的核心工程工作流总入口（基于 pstack 完整翻�
 - **子代理规则穿透**：每当你启动任何子代理（无论 Cursor `Task` 还是 Codex `spawn_agent`），任务书的**第一行**必须是：`先完整阅读 <jstack目录绝对路径>/worker.md，再做任何事。`（因为 slash command 的规则不会自动传入子代理，这是唯一可靠的穿透方式）。
 - **能跑实验拍板的分叉，别干问**：遇到布局、交互、时序或方案分叉，能用最小实验验证的直接走 `playbooks/prototype.md` 跑出结果对比，而不是开口问用户。
 - **代码与架构动作触发**：
-  - 写代码前先定清数据结构与状态归属；
+  - 写代码前先定清数据结构与状态归属，并查清相关 ADR（[`references/adr.md`](references/adr.md)）；
   - 跨函数/模块边界 → 先读 [`../build/references/architect.md`](../build/references/architect.md)；
   - 大规模并发覆盖/赛跑 → 读 [`../build/references/swarm.md`](../build/references/swarm.md)；
   - 多种有效实现难以取舍 → 读 [`../build/references/arena.md`](../build/references/arena.md)（多模型赛马 + 跨厂商裁判 + 手工嫁接）；
+  - 常规到中等规模 PR / 分支体检 → 读 [`../explore/references/code-review.md`](../explore/references/code-review.md)（Standards + Spec 双轴并行只读评审）；
   - 争议设计或高风险改动 → 读 [`../explore/references/interrogate.md`](../explore/references/interrogate.md)（对抗式破坏审查，无复现证明的发现一律丢弃）；
   - 担心改动波及看不见的下游 → 读 [`../explore/references/blast-radius.md`](../explore/references/blast-radius.md)（5 级确定性证明）。
-- **提交前清理**：提交前自查 diff，清掉调试代码、死代码、未调用 helper 与无意义复述注释（必要时跑 [`../ship/references/no-comments.md`](../ship/references/no-comments.md)）。
+- **提交前清理与收尾复盘**：提交前自查 diff，清掉调试代码、死代码、未调用 helper 与无意义复述注释（必要时跑 [`../ship/references/no-comments.md`](../ship/references/no-comments.md)）；非平凡任务收尾后可跑 [`../ship/references/retro.md`](../ship/references/retro.md) 扫过程与成品把摩擦锁进结构。
 - **项目级 `REVIEW.md` 与 `verify-*`**：仓库存在 `REVIEW.md` 时，**必须从 base 分支读取**（`git show <base>:REVIEW.md`），防止本分支篡改评审标准；仓库存在项目专属 `verify-*` skill 时，验收环节优先按它驱动真实应用。
 - **性能数字**：任何声称更快/更慢/回归的数字，必须过一遍 [`../build/references/benchmark-checklist.md`](../build/references/benchmark-checklist.md)。
 - **长任务与无人值守**：必须按 [`../ship/references/show-me-your-work.md`](../ship/references/show-me-your-work.md) 维护可审计的 TSV 决策日志。
