@@ -76,7 +76,7 @@ agent plugin marketplace remove jayden-stack
 | **`/ship`** | 自动 / 手动 | 收口交付到约定终态：`references/{no-comments,comment-sicko,correct,retro,show-me-your-work,decision-log-template.tsv}` + `scripts/log.sh`；路由 `opening-a-pr` / `babysit` / `shipping` / `autonomous-run` / `autopilot-full` / `autopilot-stack` |
 | **`/handoff`** | 自动 / 手动 | 跨会话 / Cursor ↔ Codex 交接与清理：路由 `pause-safely` / `session-pickup` / `worktree-cleanup` |
 | **`/verify-setup`** | **仅手动** | 为任意仓库首次生成或定期校准项目专属 `verify-<app>` skill 与 Feature Map |
-| **`/setup`** | **仅手动** | 一键体检并初始化本机 Cursor 与 Codex 双宿主子代理及跨厂商评审通道 |
+| **`/setup`** | **仅手动** | 一键体检并初始化当前项目的 Cursor 与 Codex 子代理、可选动态模型预算（`inherit-parent / large / medium / small`）及跨厂商评审通道（默认项目级，不污染全局） |
 
 > `setup` 与 `verify-setup` 已通过 Cursor frontmatter（`disable-model-invocation: true`）与 Codex `agents/openai.yaml`（`allow_implicit_invocation: false`）双宿主设为默认不注入。
 
