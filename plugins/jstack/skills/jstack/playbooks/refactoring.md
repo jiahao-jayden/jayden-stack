@@ -2,7 +2,7 @@
 
 **你对外部行为契约负全责。结构变，行为一丝不变。** 与 Feature（增行为）和 Bug fix（改错行为）严格区分。
 
-如果清理途中暴露出缺失功能或真实 Bug，把它拆出去另起任务——先把纯结构整理稳稳落在锚定好的契约上。允许重设计，但要明确命名并改走 **Feature**。超大跨模块重构改走 [figure-it-out](../../build/references/figure-it-out.md)；本剧本面向聚焦到中等规模的整理。
+如果清理途中暴露出缺失功能或真实 Bug，把它拆出去另起任务——先把纯结构整理稳稳落在锚定好的契约上。允许重设计，但要明确命名并改走 **Feature**。超大跨模块重构改走 [figure-it-out](../../implement/references/figure-it-out.md)；本剧本面向聚焦到中等规模的整理。
 
 1. **先锚定现有行为契约并查清既有栅栏**：
    - 先扫相关 `docs/adr/` 或 `docs/decisions.md`（见 [`../references/adr.md`](../references/adr.md)），避免误把刻意设计的约束当历史包袱拆掉。

@@ -61,5 +61,5 @@
 维护 ADR 是研发流程的副产品，不单设独立流程：
 
 - **`explore`（读 & 溯源）**：[`why.md`](../../explore/references/why.md)、[`blast-radius.md`](../../explore/references/blast-radius.md) 与 `investigation.md` 查动机和影响面时，优先扫 `docs/adr/` 或 `docs/decisions.md`，避免把刻意约束误判成历史遗留。
-- **`build`（查栅栏 & 拍板起草）**：[`architect.md`](../../build/references/architect.md) 及 `feature.md` / `refactoring.md` 动核心模块前先核对现存 ADR（冲突时必须明说是否触发推翻条件）；拍板踩中门槛的取舍或未决方向时，顺手起草极简 ADR 随本次 PR 落盘。
+- **`implement`（查栅栏 & 拍板起草）**：[`architect.md`](../../implement/references/architect.md) 及 `feature.md` / `refactoring.md` 动核心模块前先核对现存 ADR（冲突时必须明说是否触发推翻条件）；拍板踩中门槛的取舍或未决方向时，顺手起草极简 ADR 随本次 PR 落盘。
 - **`ship`（收口落盘 & 注释升格 & 复盘沉淀）**：[`no-comments.md`](../../ship/references/no-comments.md) 清注释时将跨模块架构约束升格进 ADR；`opening-a-pr.md` 提交前补齐新增/变更/收口状态；[`retro.md`](../../ship/references/retro.md) 复盘时把无法机械化的架构级取舍沉淀进 ADR。

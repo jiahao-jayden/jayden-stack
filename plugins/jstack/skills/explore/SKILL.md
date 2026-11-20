@@ -24,4 +24,4 @@ description: 探索、诊断、原型与只读评审的一键入口（绝不修�
 执行要点：
 - 结论优先依据真实日志、请求/响应、采样文件、既有 ADR（[`../jstack/references/adr.md`](../jstack/references/adr.md)）与 git 记录，每条明确标注 `实测`、`推断` 或 `未验证`。
 - 跨厂商评审前，若仓库 base 分支存在 `REVIEW.md`，先用 `git show <base>:REVIEW.md` 读取作为基准。
-- 探索结束只交付带实证的真相、决策或评审清单；需要动手改正式代码时再转 `/build`。
+- 探索结束只交付带实证的真相、决策或评审清单；需要动手改正式代码时再转 `/implement`。

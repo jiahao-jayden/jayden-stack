@@ -1,9 +1,9 @@
 ---
-name: build
+name: implement
 description: 正式代码开发与端到端自证的一键入口。内置 architect / arena / swarm / figure-it-out / tdd / benchmark-checklist 六份深度手册，并路由 bug-fix / feature / refactoring / perf-issue / hillclimb / visual-parity / multi-phase-plan 剧本。
 ---
 
-# build（正式开发、重构与性能自证）
+# implement（正式开发、重构与性能自证）
 
 按本次研发任务类型，**选定唯一主 Playbook 或专项手册** 并把步骤写入 todolist 逐项推进：
 

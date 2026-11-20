@@ -12,7 +12,7 @@ disable-model-invocation: true
 
 并行检查以下项目，整理成一张简明现状表：
 
-1. **当前宿主与插件位置**：确认当前是 Cursor 还是 Codex，定位 `jstack` 插件目录（确认 `scripts/run-external.mjs` 与 `agents/` 存在）。
+1. **当前宿主与技能位置**：确认当前是 Cursor 还是 Codex，定位 `jstack` skill 目录（确认 `jstack/scripts/run-external.mjs` 存在）。
 2. **Cursor 环境**：检查 `~/.cursor/agents/`、以及插件自带的 `agents/{scout,worker,reviewer}.md` 是否已可见。
 3. **Codex 环境**：
    - 检查 `codex --version`；

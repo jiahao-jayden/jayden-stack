@@ -8,35 +8,20 @@
 
 ## 快速安装
 
-### 方式一：按项目目录安装（不装全局、团队 `git pull` 即用）
+### 方式一：按项目目录安装（推荐，不装全局、团队 `git pull` 即用）
 
-适合**只在单个仓库启用**，或**直接提交进项目仓库让团队成员拉代码后开箱生效**。Cursor 与 Codex 都原生自动扫描项目里的 `.agents/skills/`，只需存一份即可双端共用：
+适合**只在单个仓库启用**，或**直接提交进项目仓库让团队成员拉代码后开箱生效**。在目标业务仓库根目录执行一行即可把全部 7 个顶层 Skill、22 个 Playbook、20 份参考手册与跨厂商评审脚本完整装入项目（`.agents/skills/`，Cursor 与 Codex 原生共同识别）：
 
 ```bash
-git clone --depth 1 https://github.com/jiahao-jayden/jayden-stack.git /tmp/jayden-stack
-SRC=/tmp/jayden-stack/plugins/jstack
-DST="$(pwd)"   # 在目标业务仓库根目录执行
+# 安装到当前项目（不加 -g 即项目级）
+npx skills add jiahao-jayden/jayden-stack -a cursor codex -s '*' -y
 
-mkdir -p "$DST/.agents/skills" "$DST/.agents/agents" "$DST/.agents/scripts" "$DST/.cursor/agents"
-for s in jstack explore build ship handoff verify-setup setup; do
-  rm -rf "$DST/.agents/skills/$s"
-  cp -R "$SRC/skills/$s" "$DST/.agents/skills/$s"
-done
-for a in scout worker reviewer comment-sicko; do
-  cp "$SRC/agents/$a.md" "$DST/.cursor/agents/$a.md"
-done
-ln -sf "../../.cursor/agents/comment-sicko.md" "$DST/.agents/agents/comment-sicko.md"
-cp "$SRC/scripts/run-external.mjs" "$DST/.agents/scripts/run-external.mjs"
-chmod +x "$DST/.agents/scripts/run-external.mjs" \
-  "$DST/.agents/skills/jstack/scripts/worktree-audit.sh" \
-  "$DST/.agents/skills/ship/scripts/log.sh"
-rm -rf /tmp/jayden-stack
+# 后续更新 / 卸载
+npx skills update -p -y
+npx skills remove -s jstack explore implement ship handoff verify-setup setup -y
 ```
 
-安装后在仓库内生成的目录：
-- `.agents/skills/{jstack,explore,build,ship,handoff,verify-setup,setup}/`：7 个顶层 Skill 与底层全部 Playbook / References（Cursor 与 Codex 共用）；
-- `.cursor/agents/{scout,worker,reviewer,comment-sicko}.md`：Cursor 原生子代理；
-- `.agents/agents/comment-sicko.md` 与 `.agents/scripts/run-external.mjs`：相对路径锚点与 Codex 跨厂商评审脚本。
+> 若希望 Cursor 额外注册 4 个命名子代理（`scout` / `worker` / `reviewer` / `comment-sicko`），可按需从本仓库 `plugins/jstack/agents/*.md` 复制到项目的 `.cursor/agents/`；不复制也不影响全部功能（默认走通用 `Task` + 首行穿透 `worker.md`）。
 
 ### 方式二：原生插件管理器安装（个人全机复用）
 
@@ -70,7 +55,7 @@ agent plugin marketplace remove jayden-stack
 日常直接按目标描述任务，前 5 个入口自动按场景路由；后 2 个工具入口默认不注入上下文，仅在手动敲命令时触发：
 
 - **查原理 / 追历史 / 审 PR / 做抛弃式原型** → `/explore`（硬边界：不动正式业务代码）
-- **修 Bug / 做功能 / 重构 / 性能优化 / 像素对齐** → `/build`
+- **修 Bug / 做功能 / 重构 / 性能优化 / 像素对齐** → `/implement`
 - **清注释 / 开 PR / 盯 CI / 合并 / 长任务 / 复盘棘轮** → `/ship`
 - **暂停交接 / Cursor ↔ Codex 接手 / 清旧 worktree** → `/handoff`
 - **跨阶段或拿不准入口** → `/jstack`（自动路由全部 22 个 Playbook）
@@ -81,14 +66,14 @@ agent plugin marketplace remove jayden-stack
 
 ## 结构设计：顶层极简，底层厚实
 
-对外只暴露 **7 个顶层 Skill**（不污染斜杠命令面板和上下文 catalog），把 **22 个完整 Playbook** 与 **19 份专项参考手册**按阶段收纳在 `playbooks/` 与 `references/` 下按需读取、零预注入：
+对外只暴露 **7 个顶层 Skill**（不污染斜杠命令面板和上下文 catalog），把 **22 个完整 Playbook** 与 **20 份专项参考手册**按阶段收纳在 `playbooks/` 与 `references/` 下按需读取、零预注入：
 
 | 顶层 Skill | 调用方式 | 定位与内部收纳 |
 | --- | --- | --- |
-| **`/jstack`** | 自动 / 手动 | 总入口：22 个中文 Playbook + `worker.md` 穿透规则 + `references/{principles,adr,host-dispatch,bugbot-triage}.md` + `scripts/worktree-audit.sh` |
+| **`/jstack`** | 自动 / 手动 | 总入口：22 个中文 Playbook + `worker.md` 穿透规则 + `references/{principles,adr,host-dispatch,bugbot-triage}.md` + `scripts/{worktree-audit.sh,run-external.mjs}` |
 | **`/explore`** | 自动 / 手动 | 探索、诊断、原型与只读评审：`references/{how,why,code-review,interrogate,blast-radius}.md`；路由 `investigation` / `runtime-forensics` / `trace-forensics` / `prototype` |
-| **`/build`** | 自动 / 手动 | 正式开发、重构与性能自证：`references/{architect,arena,swarm,figure-it-out,tdd,benchmark-checklist}.md`；路由 `bug-fix` / `feature` / `refactoring` / `perf-issue` / `hillclimb` / `visual-parity` / `multi-phase-plan` |
-| **`/ship`** | 自动 / 手动 | 收口交付到约定终态：`references/{no-comments,correct,retro,show-me-your-work,decision-log-template.tsv}` + `scripts/log.sh`；路由 `opening-a-pr` / `babysit` / `shipping` / `autonomous-run` / `autopilot-full` / `autopilot-stack` |
+| **`/implement`** | 自动 / 手动 | 正式开发、重构与性能自证：`references/{architect,arena,swarm,figure-it-out,tdd,benchmark-checklist}.md`；路由 `bug-fix` / `feature` / `refactoring` / `perf-issue` / `hillclimb` / `visual-parity` / `multi-phase-plan` |
+| **`/ship`** | 自动 / 手动 | 收口交付到约定终态：`references/{no-comments,comment-sicko,correct,retro,show-me-your-work,decision-log-template.tsv}` + `scripts/log.sh`；路由 `opening-a-pr` / `babysit` / `shipping` / `autonomous-run` / `autopilot-full` / `autopilot-stack` |
 | **`/handoff`** | 自动 / 手动 | 跨会话 / Cursor ↔ Codex 交接与清理：路由 `pause-safely` / `session-pickup` / `worktree-cleanup` |
 | **`/verify-setup`** | **仅手动** | 为任意仓库首次生成或定期校准项目专属 `verify-<app>` skill 与 Feature Map |
 | **`/setup`** | **仅手动** | 一键体检并初始化本机 Cursor 与 Codex 双宿主子代理及跨厂商评审通道 |
@@ -100,7 +85,7 @@ agent plugin marketplace remove jayden-stack
 ## 内置核心机制
 
 1. **六条工程铁律与三轮熔断**：一路收到约定终态并读回核验；UI 改动真实环境正反态全测；结论带现场证据并标注 `实测 / 推断 / 未验证`；多入口开工列清单逐项核对；严守指定设备与运行方式（热更新/真机/禁模拟器）；同一前提连挂 2 次先质疑前提，累计 3 轮修不过直接熔断带证据找人。
-2. **鲜活子代理与跨厂商第二意见**：修补轮与下一条任务默认开干净子代理（首行强制读 `worker.md` 穿透规则）；高风险评审、赛马裁判与长任务审计调用跨厂商强模型（Cursor 用原生 `Task` 的 `model`，Codex 用 `scripts/run-external.mjs` 调本机 `claude` CLI，失败显式报 `dropout`，绝不静默降级）。
+2. **鲜活子代理与跨厂商第二意见**：修补轮与下一条任务默认开干净子代理（首行强制读 `worker.md` 穿透规则）；高风险评审、赛马裁判与长任务审计调用跨厂商强模型（Cursor 用原生 `Task` 的 `model`，Codex 用 `jstack/scripts/run-external.mjs` 调本机 `claude` CLI，失败显式报 `dropout`，绝不静默降级）。
 3. **反水文 ADR 维护（`jstack/references/adr.md`）**：代码库是“现状事实”的唯一真相，ADR 严禁复述现状和流水账，只记**约束未来改动的取舍（`accepted`）**与**尚未落成代码的未决分叉（`proposed` / `open`）**；全流程自然联动（`explore` 查栅栏 → `build` 改前核对与拍板起草 → `ship` 注释升格、状态收口与复盘沉淀）。
 4. **分层评审体系**：常规 PR 走 `code-review`（Standards + Spec 双轴并行只读体检，从 base 分支读 `REVIEW.md` 防篡改）；高风险改动走 `interrogate`（对抗式破坏审查，无复现证明一律丢弃）与 `blast-radius`（5 级确定性证明）。
 5. **收尾复盘与棘轮固化（`retro` + `correct`）**：收尾时同时扫**过程证据（transcript 里的踩坑、绕路、人工纠偏、被否决方案）**与**成品证据（diff / PR 评论 / CI 报错）**，按「架构消灭 > 类型/Lint > 行为测试 > 文档规则」优先级把摩擦锁死，并同步清理过时文档。

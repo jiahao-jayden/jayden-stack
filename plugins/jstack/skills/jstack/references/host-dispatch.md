@@ -37,7 +37,7 @@
 - **跨厂商只读评审 / 裁判 / 轨迹审计**：Codex 原生子代理跑在 OpenAI 生态内，需要真正的跨厂商视角时，调用本插件自带脚本驱动本机 `claude` CLI：
 
 ```bash
-node <jstack-plugin-dir>/scripts/run-external.mjs \
+node <jstack-skill-dir>/scripts/run-external.mjs \
   --cwd "<repo-root>" \
   --prompt-file "<review-prompt.md>" \
   --context-file "<diff-or-plan.txt>" \

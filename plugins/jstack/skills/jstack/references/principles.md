@@ -96,7 +96,7 @@
 
 ### 21. 解释清楚每一个数字（Explain the Number）
 - **何时用**：采集、相信或汇报任何性能数字（提速、回退、吞吐、延迟、评测分）前。
-- **怎么做**：找出真正的瓶颈限制器（limiter），并排除你测到的其实不是目标工作（比如测到了缓存、空操作、报错快退或压测机先饱和）。配合 [benchmark-checklist](../../build/references/benchmark-checklist.md) 的七问核对。
+- **怎么做**：找出真正的瓶颈限制器（limiter），并排除你测到的其实不是目标工作（比如测到了缓存、空操作、报错快退或压测机先饱和）。配合 [benchmark-checklist](../../implement/references/benchmark-checklist.md) 的七问核对。
 
 ---
 

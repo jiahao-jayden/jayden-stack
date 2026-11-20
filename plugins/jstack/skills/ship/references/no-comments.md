@@ -10,7 +10,7 @@
 
 1. **派出 `comment-sicko` 清理注释并标出 `MUST KILL`**：
    - 在 Cursor 中通过 `Task` 派 `subagent_type: "comment-sicko"`；
-   - 在 Codex 中按 [`../../../agents/comment-sicko.md`](../../../agents/comment-sicko.md) 的角色规则派专用子代理（严格只删注释和标记，不动业务代码）。
+   - 在 Codex 中按 [`comment-sicko.md`](comment-sicko.md) 的角色规则派专用子代理（严格只删注释和标记，不动业务代码）。
 2. **主会话严格复核报告与 diff**：
    - 拒绝任何越界修改业务代码、越出指定范围、误删豁免项（License / 无法修改的外部平台怪癖 / 对外公共 API 文档 / RFC 链接）的操作；
    - 对我们自己代码里的怪癖标记为 `MUST KILL` 的条目保持有效，绝不把注释恢复回去糊弄过去；

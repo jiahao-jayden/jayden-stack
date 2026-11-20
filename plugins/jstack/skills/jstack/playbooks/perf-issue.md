@@ -6,7 +6,7 @@
 
 1. **先抓基准数据并用 `benchmark-checklist` 校验**：
    - 在真实运行面与目标设备上采集优化前基准 trace/耗时/内存（严守用户指定的设备与运行方式）。
-   - 用 [benchmark-checklist](../../build/references/benchmark-checklist.md) 的七问核对基准以及后续每一个数字，确认瓶颈限制器（limiter）且排除“没真正执行工作”的假数字。
+   - 用 [benchmark-checklist](../../implement/references/benchmark-checklist.md) 的七问核对基准以及后续每一个数字，确认瓶颈限制器（limiter）且排除“没真正执行工作”的假数字。
 2. **对照数据追踪源码，按「七条性能口诀」从省到贵思考**：
    先跑再下结论，绝不凭空宣称“已经到性能上限”。按以下顺序寻找突破口，前一条达标就停手：
    1. **干脆不做**：停掉没人消费结果的计算，比把算它变快强十倍。

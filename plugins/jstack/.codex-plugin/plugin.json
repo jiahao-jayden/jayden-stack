@@ -1,6 +1,6 @@
 {
   "name": "jstack",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "面向 Cursor 与 Codex 的完整中文工程工作流插件（基于 pstack 深度翻译与本土化改造）：全套 22 个 Playbook、23 条工程原则、6 条个人铁律、ADR 维护、双轴评审、复盘棘轮与跨厂商赛马验证闭环。",
   "author": {
     "name": "Jayden"
@@ -22,7 +22,7 @@
   "interface": {
     "displayName": "jstack",
     "shortDescription": "完整 22 Playbook + 跨厂商评审与真实运行验证的中文工程工作流",
-    "longDescription": "基于 Lauren Tan 的 pstack 与 open-pstack 深度中文翻译并针对 Cursor + Codex 双宿主改造：对外只暴露 jstack / explore / build / ship / handoff / verify-setup / setup 七个清爽顶层 Skill，内部完整收纳 22 个实战 Playbook、23 条工程原则、6 条个人铁律与 19 份专项参考手册（adr / code-review / retro / arena / interrogate / blast-radius / swarm / figure-it-out 等）。",
+    "longDescription": "基于 Lauren Tan 的 pstack 与 open-pstack 深度中文翻译并针对 Cursor + Codex 双宿主改造：对外只暴露 jstack / explore / implement / ship / handoff / verify-setup / setup 七个清爽顶层 Skill，内部完整收纳 22 个实战 Playbook、23 条工程原则、6 条个人铁律与 20 份专项参考手册（adr / code-review / retro / arena / interrogate / blast-radius / swarm / figure-it-out 等）。",
     "developerName": "Jayden（基于 Lauren Tan 的 pstack 改编）",
     "category": "Developer Tools",
     "capabilities": [
