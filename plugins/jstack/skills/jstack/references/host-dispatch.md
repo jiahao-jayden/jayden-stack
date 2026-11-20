@@ -33,7 +33,7 @@
 
 ## 四、在 Codex 中派发
 
-- **侦察与实现**：使用原生 `spawn_agent`，调用由 `/setup` 生成到 `~/.codex/agents/` 的角色配置（`scout`、`worker`、`reviewer`）。多路并行写代码时，每个 `worker` 必须分配互不重叠的目录或独立 git worktree。
+- **侦察与实现**：使用原生 `spawn_agent`，调用由 `/setup` 生成到项目 `.codex/agents/`（或全局 `~/.codex/agents/`）的角色配置（`scout`、`worker`、`reviewer`）。多路并行写代码时，每个 `worker` 必须分配互不重叠的目录或独立 git worktree。
 - **跨厂商只读评审 / 裁判 / 轨迹审计**：Codex 原生子代理跑在 OpenAI 生态内，需要真正的跨厂商视角时，调用本插件自带脚本驱动本机 `claude` CLI：
 
 ```bash

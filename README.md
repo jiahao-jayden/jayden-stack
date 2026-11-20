@@ -104,7 +104,7 @@ agent plugin marketplace remove jayden-stack
 ## 双宿主细节
 
 - **Cursor**：通过 `.cursor-plugin/marketplace.json` 或项目级 `.agents/skills/` + `.cursor/agents/` 加载全部 7 个顶层 Skills 与 4 个原生 Agents（`scout` / `worker` / `reviewer` / `comment-sicko`）。
-- **Codex**：通过 `.agents/plugins/marketplace.json` 或项目级 `.agents/skills/` 加载同一套 7 个顶层 Skills；可运行 `/setup` 生成 `~/.codex/agents/{scout,worker,reviewer}.toml` 并验证本机 `claude` 跨厂商只读评审通道。
+- **Codex**：通过 `.agents/plugins/marketplace.json` 或项目级 `.agents/skills/` 加载同一套 7 个顶层 Skills；可运行 `/setup` 在当前项目生成 `.codex/config.toml` 与 `.codex/agents/{scout,worker,reviewer}.toml`（默认项目级，不污染全局）并验证本机 `claude` 跨厂商只读评审通道。
 
 ## 开源协议
 
