@@ -6,16 +6,26 @@
 
 ## 整体结构
 
-### 1. 总入口 `/jstack`（完整 4 大类 22 个中文 Playbook）
+### 1. 日常最常用的 5 个顶层入口
 
-直接调用 `/jstack` 即可自动路由到对应 Playbook 并写入 todolist，内置 `worker.md`（子代理首行规则穿透）、23 条完整工程原则、6 条个人高频铁律、三轮熔断机制与双宿主调度手册：
+日常 90% 的场景只需叫这 5 个入口，背后全部落到完整 22 个中文 Playbook 与 15 个高密度专项 Skill：
+
+| 入口 | 定位 | 背后路由的 Playbook / 能力 |
+| --- | --- | --- |
+| **`/jstack`** | 总入口（全自动路由） | 全部 22 个中文 Playbook + 23 条工程原则 + 6 条个人铁律 + `worker.md` 穿透 |
+| **`/explore`** | 探索、诊断、原型与评审（不动正式代码） | `investigation` / `runtime-forensics` / `trace-forensics` / `prototype` / `how` / `why` / `interrogate` / `blast-radius` |
+| **`/build`** | 正式开发、重构与性能自证 | `bug-fix` / `feature` / `refactoring` / `perf-issue` / `hillclimb` / `visual-parity` / `multi-phase-plan` / `figure-it-out` |
+| **`/ship`** | 一路收到约定终态 | `opening-a-pr` / `babysit` / `shipping` / `autonomous-run` / `autopilot-full` / `autopilot-stack` / `no-comments` / `correct` |
+| **`/handoff`** | 跨会话 / Cursor ↔ Codex 交接与清理 | `pause-safely` / `session-pickup` / `worktree-cleanup` |
+
+### 2. `/jstack` 内置的完整 4 大类 22 个中文 Playbook
 
 - **调查、修复与性能（6）**：`investigation`、`bug-fix`、`perf-issue`、`hillclimb`、`runtime-forensics`、`trace-forensics`
 - **开发、设计与评估（6）**：`feature`、`refactoring`、`prototype`、`visual-parity`、`authoring-a-skill`、`eval`
 - **PR、发布与长任务（6）**：`opening-a-pr`、`babysit`、`shipping`、`autonomous-run`、`autopilot-full`、`autopilot-stack`
 - **跨阶段、交接与维护（4）**：`session-pickup`、`pause-safely`、`multi-phase-plan`、`worktree-cleanup`
 
-### 2. 15 个高密度专项 Skill（Playbook 按需调用，也可单独直呼）
+### 3. 15 个高密度专项 Skill（Playbook 按需调用，也可单独直呼）
 
 | Skill | 作用 |
 | --- | --- |
@@ -35,10 +45,10 @@
 | `/verify-setup` | 为任意项目首次生成或定期校准项目专属 `verify-<app>` skill 与 Feature Map |
 | `/setup` | 一键体检并初始化本机 Cursor 与 Codex 双宿主子代理及跨厂商评审通道 |
 
-### 3. 双宿主原生支持
+### 4. 双宿主原生支持
 
-- **Cursor**：通过 `.cursor-plugin/marketplace.json` 加载 16 个 Skills + 4 个原生 Agents（`scout` / `worker` / `reviewer` / `comment-sicko`），原生 `Task` 支持跨厂商模型。
-- **Codex**：通过 `.agents/plugins/marketplace.json` 加载同一套 16 个 Skills；运行 `/setup` 生成 `~/.codex/agents/*.toml`，并通过自带无依赖脚本 `plugins/jstack/scripts/run-external.mjs` 调本机 `claude` CLI 完成跨厂商只读评审（失败显式返回 `dropout`，绝不静默降级）。
+- **Cursor**：通过 `.cursor-plugin/marketplace.json` 加载全部 20 个 Skills + 4 个原生 Agents（`scout` / `worker` / `reviewer` / `comment-sicko`），原生 `Task` 支持跨厂商模型。
+- **Codex**：通过 `.agents/plugins/marketplace.json` 加载同一套 20 个 Skills；运行 `/setup` 生成 `~/.codex/agents/*.toml`，并通过自带无依赖脚本 `plugins/jstack/scripts/run-external.mjs` 调本机 `claude` CLI 完成跨厂商只读评审（失败显式返回 `dropout`，绝不静默降级）。
 
 ## 开源协议
 

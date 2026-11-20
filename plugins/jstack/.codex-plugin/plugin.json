@@ -22,7 +22,7 @@
   "interface": {
     "displayName": "jstack",
     "shortDescription": "完整 22 Playbook + 跨厂商评审与真实运行验证的中文工程工作流",
-    "longDescription": "基于 Lauren Tan 的 pstack 与 open-pstack 深度中文翻译并针对 Cursor + Codex 双宿主改造：包含 22 个覆盖调查/修复/性能/开发/设计/PR/长任务/交接的实战 Playbook、23 条完整工程原则、6 条个人高频铁律，以及 arena / interrogate / blast-radius / swarm / figure-it-out / verify-setup 等 16 个高密度核心 Skill。",
+    "longDescription": "基于 Lauren Tan 的 pstack 与 open-pstack 深度中文翻译并针对 Cursor + Codex 双宿主改造：提供 jstack 总入口与 explore / build / ship / handoff 四个日常阶段入口，底层内置完整 22 个实战 Playbook、23 条工程原则、6 条个人铁律，以及 arena / interrogate / blast-radius / swarm / figure-it-out / verify-setup 等 15 个专项重武器（共 20 个 Skill）。",
     "developerName": "Jayden（基于 Lauren Tan 的 pstack 改编）",
     "category": "Developer Tools",
     "capabilities": [
