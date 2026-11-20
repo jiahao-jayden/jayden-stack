@@ -1,6 +1,6 @@
 {
   "name": "jstack",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "面向 Cursor 与 Codex 的完整中文工程工作流插件（基于 pstack 深度翻译与本土化改造）：全套 22 个 Playbook、23 条工程原则、6 条个人铁律、ADR 维护、双轴评审、复盘棘轮与跨厂商赛马验证闭环。",
   "author": {
     "name": "Jayden"

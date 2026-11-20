@@ -6,6 +6,7 @@
 2. **提交前清理冗余（Deslop + Diff Checklist）**：
    - 通读完整 `git diff`，清掉多余调试日志、死代码、未调用的 helper、过度防御的重复判空与复述代码的废话注释（必要时跑 [no-comments](../../ship/references/no-comments.md)）。
    - 若本次改动拍板了满足门槛的架构决策/未决方向，或推翻/收口了既有 ADR，按 [`../references/adr.md`](../references/adr.md) 同步落盘或把旧 ADR 标为 `superseded`（不达门槛就不写）。
+   - **顺手整理受影响的 `docs/`**：若本次改动了架构、接口、流程或目录结构，grep `docs/` 中提到相关路径或主题的文档——已过时或与代码/Skill 重复的当场修或删，严禁把一次性过程稿（`*-handoff.md` / `*-retro.md` / `*-plan.md`）留进 `docs/`（详见 [retro](../../ship/references/retro.md)）。
    - 按 diff 类型触发轻量复核：状态/并发看重入与回滚；接口/Schema 看调用方已迁完且旧接口已删；UI/动效看正反状态与遮挡；构建/配置看真实打包启动。
    - 跑通仓库要求的全部本地检查（lint、type-check、测试），以最终真实输出为准。
 3. **拆成小而清晰的可落地提交**：按逻辑依赖整理提交序列，遵循仓库提交规范（如 Conventional Commits），每个提交单独看都成立。
