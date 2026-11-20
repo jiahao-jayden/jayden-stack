@@ -1,0 +1,16 @@
+{
+  "name": "jayden-stack",
+  "owner": {
+    "name": "Jayden"
+  },
+  "metadata": {
+    "description": "面向 Cursor 与 Codex 双宿主的极简中文 Agent 工程工作流插件（基于 pstack 精简与本土化改造）。"
+  },
+  "plugins": [
+    {
+      "name": "jstack",
+      "source": "plugins/jstack",
+      "description": "极简中文工程工作流：先深挖后动手、写更少但更稳的代码、用真实运行证据自证，并一路收到约定的终态。"
+    }
+  ]
+}

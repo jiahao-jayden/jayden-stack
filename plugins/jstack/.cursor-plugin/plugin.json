@@ -1,0 +1,29 @@
+{
+  "name": "jstack",
+  "displayName": "jstack",
+  "version": "0.1.0",
+  "description": "极简中文工程工作流：先深挖后动手、写更少但更稳的代码、用真实运行证据自证，并一路收到约定的终态。",
+  "author": {
+    "name": "Jayden"
+  },
+  "homepage": "https://github.com/jiahao-jayden/jayden-stack",
+  "repository": "https://github.com/jiahao-jayden/jayden-stack",
+  "license": "MIT",
+  "keywords": [
+    "jstack",
+    "workflow",
+    "playbooks",
+    "verification",
+    "review",
+    "pstack"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "workflow",
+    "playbooks",
+    "verification",
+    "review"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/"
+}

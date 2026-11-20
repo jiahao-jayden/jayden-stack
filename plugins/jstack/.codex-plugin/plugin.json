@@ -1,0 +1,37 @@
+{
+  "name": "jstack",
+  "version": "0.1.0",
+  "description": "极简中文工程工作流：先深挖后动手、写更少但更稳的代码、用真实运行证据自证，并一路收到约定的终态。同时支持 Cursor 与 Codex。",
+  "author": {
+    "name": "Jayden"
+  },
+  "homepage": "https://github.com/jiahao-jayden/jayden-stack",
+  "repository": "https://github.com/jiahao-jayden/jayden-stack",
+  "license": "MIT",
+  "keywords": [
+    "jstack",
+    "workflow",
+    "playbooks",
+    "verification",
+    "review",
+    "pstack"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "jstack",
+    "shortDescription": "先深挖后动手、真实证据自证、一路收到终态的极简中文工程工作流",
+    "longDescription": "基于 pstack 精简改写的中文工程工作流插件，收敛为 jstack 总入口与 explore / build / ship / handoff / verify-setup / setup 六个清晰能力，原生适配 Cursor 与 Codex，支持跨厂商只读评审与项目级验证闭环。",
+    "developerName": "Jayden（基于 Lauren Tan 的 pstack 改编）",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "用 jstack 来推进这个任务。",
+      "用 explore 帮我查清这个问题的根因。"
+    ],
+    "websiteURL": "https://github.com/jiahao-jayden/jayden-stack"
+  }
+}
