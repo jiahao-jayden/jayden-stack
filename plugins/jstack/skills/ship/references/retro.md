@@ -49,7 +49,7 @@ docs/
 - **移动即全仓改链**：整理归位后必须全局 grep 修正 `README.md`、`AGENTS.md`、CI workflow、脚本、Skill 与文档内部的相对链接，确保 **0 断链**。
 
 ### 严禁长期留在 `docs/` 的垃圾
-- 一次性过程稿：`*-handoff.md`、`*-retro.md`、`*-research.md`、`*-plan.md`、`*-notes.md`；
+- 一次性过程稿：`*-handoff.md`、`*-retro.md`、`*-research.md`、`*-plan.md`、`*-notes.md`（**例外**：活跃中的跨会话交接草稿统一放 `docs/handoffs/` 并由 `.gitignore` 忽略，任务接手完结后再删，不在使用中误删）；
 - 与代码事实冲突或纯复述目录/实现的“现状说明书”；
 - 与仓库 `AGENTS.md` 或已有 Skill 内容重复的平行副本。
 
